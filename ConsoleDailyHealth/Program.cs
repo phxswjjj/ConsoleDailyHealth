@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Threading;
 
 namespace ConsoleDailyHealth
 {
@@ -15,6 +16,9 @@ namespace ConsoleDailyHealth
         static void Main(string[] args)
         {
             LoadSettings();
+
+            var delayms = new Random().Next(_Settings.DailyHealth.RandomDelaySecond) * 1000;
+            Thread.Sleep(delayms);
 
             var token = GetToken();
             Console.WriteLine($"token: {token}");

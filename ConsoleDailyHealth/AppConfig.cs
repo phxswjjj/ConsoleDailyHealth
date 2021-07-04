@@ -15,6 +15,7 @@ namespace ConsoleDailyHealth
         public string BaseUrl;
         public string TemplatePath;
         public string AuthBasicBearer;
+        public int RandomDelaySecond;
     }
     public class UserInfo
     {
