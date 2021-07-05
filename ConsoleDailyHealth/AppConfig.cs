@@ -6,20 +6,20 @@ namespace ConsoleDailyHealth
 {
     public class AppConfig
     {
-        public DailyHealthApi DailyHealth;
-        public UserInfo User;
+        public DailyHealthApi DailyHealth { get; set; }
+        public UserInfo User { get; set; }
 
     }
     public class DailyHealthApi
     {
-        public string BaseUrl;
-        public string TemplatePath;
-        public string AuthBasicBearer;
-        public int RandomDelaySecond;
+        public string BaseUrl { get; set; }
+        public string TemplatePath { get; set; }
+        public string AuthBasicBearer { get; set; }
+        public int RandomDelaySecond { get; set; }
     }
     public class UserInfo
     {
-        public string Account;
-        public string Password;
+        public string Account { get; set; }
+        public string Password { get; set; }
     }
 }

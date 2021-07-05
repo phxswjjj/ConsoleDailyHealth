@@ -17,8 +17,9 @@ namespace ConsoleDailyHealth
         {
             LoadSettings();
 
-            var delayms = new Random().Next(_Settings.DailyHealth.RandomDelaySecond) * 1000;
-            Thread.Sleep(delayms);
+            var delaySec = new Random().Next(_Settings.DailyHealth.RandomDelaySecond);
+            Console.WriteLine($"Wait {delaySec} sec..");
+            Thread.Sleep(delaySec * 1000);
 
             var token = GetToken();
             Console.WriteLine($"token: {token}");
@@ -35,7 +36,7 @@ namespace ConsoleDailyHealth
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json");
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
             var config = builder.Build();
             var settings = config.Get<AppConfig>();
             _Settings = settings;
